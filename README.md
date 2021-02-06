@@ -2,8 +2,8 @@
 CleanCodeStudy
 
 ## Contact Us
-[:sunglasses:]이한위 : [E-mail]mobiledev@kakao.com, [GitHub](https://github.com/HanweeeeLee)
-김준철 : 
+:sunglasses:이한위 : [E-mail]mobiledev@kakao.com, [GitHub](https://github.com/HanweeeeLee)  
+김준철 :   
 정현기 : 
 
 ## License
