@@ -2,7 +2,7 @@
 CleanCodeStudy
 
 ## Contact Us
-이한위 : [E-mail]mobiledev@kakao.com, [GitHub](https://github.com/HanweeeeLee)  
+이한위 : [E-mail]mobiledev@kakao.com, [GitHub][https://github.com/HanweeeeLee](https://github.com/HanweeeeLee)  
 김준철 :   
 정현기 : 
 
