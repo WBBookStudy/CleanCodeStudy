@@ -8,9 +8,9 @@ Sublime Text로 열 수 있는 파일을 올려주세요.
 [Sublime Text용 Swift 패키지 링크](https://packagecontrol.io/packages/Swift)
 
 ## Contact Us
-:sunglasses:이한위 : [E-mail]mobiledev@kakao.com, [GitHub](https://github.com/HanweeeeLee)  
-김준철 :  
-정현기 : [E-mail]jhkman1208@gmail.com
+:sunglasses: 이한위 : [E-mail]mobiledev@kakao.com, [GitHub](https://github.com/HanweeeeLee)  
+:sunglasses: 김준철 :  
+:sunglasses: 정현기 : [E-mail]jhkman1208@gmail.com  
 
 ## License
 
