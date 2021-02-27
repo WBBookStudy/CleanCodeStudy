@@ -9,8 +9,8 @@ Sublime Text로 열 수 있는 파일을 올려주세요.
 
 ## Contact Us
 :sunglasses: 이한위 : [E-mail]mobiledev@kakao.com, [GitHub](https://github.com/HanweeeeLee)  
-:sunglasses: 김준철 :  
-:sunglasses: 정현기 : [E-mail]jhkman1208@gmail.com  
+☺️ 김준철 :  
+👻 정현기 : [E-mail]jhkman1208@gmail.com  
 
 ## License
 
