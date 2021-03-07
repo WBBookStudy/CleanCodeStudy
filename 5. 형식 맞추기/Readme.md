@@ -46,6 +46,7 @@ public class BoldWidget extends ParentWidget{
   }  
 }
 
+
 // 빈 행이 없는 경우, 가독성이 현저히 떨어진다
 package fitnesse.wikitext.widgets;
 import java.util.regex.Matcher;
