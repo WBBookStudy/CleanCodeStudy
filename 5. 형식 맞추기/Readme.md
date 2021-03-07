@@ -70,3 +70,8 @@ public class BoldWidget extends ParentWidget {
 }
 
 ```
+
+
+### 2-3. 세로 밀집도
+
+세로 밀집도는 연관성을 의미한다. 서로 밀접한 코드행은 세로로 가까이 놓여야 한다.
