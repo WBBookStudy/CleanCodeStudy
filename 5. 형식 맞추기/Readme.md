@@ -254,8 +254,6 @@ public class Quadratic {
     private static double determinant(double a, double b, double c) {
         return b*b - 4*a*c;
     }
-    
-    //개인적인 의견으로 항과 항사이는 우선순위 적으로 공백으로 분리하는게 맞고 승수에 공백이 없다기보단 곱셈or나눗셈 부분은 공백이 없고 덧셈이나 뺄셈에는 공백이 들어가는게 맞는거 같음...
 }
 ```
 
