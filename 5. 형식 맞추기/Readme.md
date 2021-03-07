@@ -146,9 +146,9 @@ public class WikiPageResponder implements SecureResponder {
 
   public Response makeResponse(FitNesseContext context, Request request)
     throws Exception {
-    String pageName = getPageNameOrDefault(request, "FrontPage");	//getPageNameOrdefault 함수를 첫번쨰로 호출
-    loadPage(pageName, context);					//loadPage 함수를 두번쨰로 호출
-    if (page == null)							//결과에 따라 notFoundResponse 혹은 makePageResponse 함수를 순차적으로 호출
+    String pageName = getPageNameOrDefault(request, "FrontPage");  //getPageNameOrdefault 함수를 첫번쨰로 호출
+    loadPage(pageName, context);				   //loadPage 함수를 두번쨰로 호출
+    if (page == null)						   //결과에 따라 notFoundResponse 혹은 makePageResponse 함수를 순차적으로 호출
       return notFoundResponse(context, request);			
     else
       return makePageResponse(context);
@@ -254,7 +254,9 @@ public class Quadratic {
 
 
 ### 3-2. 가로 정렬
+#### 3-2 Example1
 ```
+//가로정렬을 시킨 example
 public class FitNesseExpediter implements ResponseSender {
   private Socket          socket;
   private InputStream     input;
@@ -285,3 +287,77 @@ public class FitNesseExpediter implements ResponseSender {
 + 코드 형식을 자동으로 맞춰주는 도구는 위의 정렬을 무시한다
 + 위와 같이 코드 선언부가 길면 클래스를 쪼개야 한다
 
+위와 같은 이유로 아래와 같이 정렬을 하지않음으로 오히려 중대한 결함을 찾기 쉬워진다.
+#### 3-2 Example2
+```
+//가로정렬을 하지않은 example
+public class FitNesseExpediter implements ResponseSender {
+  private Socket socket;
+  private InputStream input;
+  private OutputStream output;
+  private Request request;
+  private Response response;
+  private FitNesseContext context;
+  private ExecutorService executorService;
+  private long requestParsingTimeLimit;
+  private long requestProgress;
+  private long requestParsingDeadline;
+  private boolean hasError;
+    
+  public FitNesseExpediter(Socket s, FitNesseContext context) throws IOException {
+    this.context = context;
+    this.socket = s;
+    input = s.getInputStream();
+    output = s.getOutputStream();
+    this.requestParsingTimeLimit = 10000;
+  }
+}
+```
+
+### 3-3. 들여쓰기
+
+범위로 이뤄진 계층을 표현하기 위해 코드를 들여쓴다. 들여쓰기한 코드의 경우 구조가 한눈에 들어온다.
+주의할점은
++ 파일 수준인 문장은 들여쓰지 않는다(클래스)
++ 메서드는 클래스보다 한 수준 들여쓴다
++ 메서드 코드는 메서드 선언보다 한 수준 들여쓴다
++ 블록 코드는 블록을 포함하는 코드보다 한 수준 들여쓴다
+
+때로는 간단한 if문, 짧은 while문, 짧은 함수에서 들여쓰기를 무시하고 싶기도 하다.
+하지만 이런 경우에도 들여쓰기를 하는것을 지향하자.
+```
+//들여쓰기를 무시한 경우
+public class CommentWidget extends TextWidget {
+    public static final String REGEXP = "^#[^\r\n]*(?:(?:\r\n)|\n|\r)?";
+    
+    public CommentWidget(ParentWidget parent, String text) {super(parent, text);}
+    public String render() throws Exception {return "";}
+}
+
+//들여쓰기를 적용한 경우
+public class CommentWidget extends TextWidget {
+    public static final String REGEXP = "^#[^\r\n]*(?:(?:\r\n)|\n|\r)?";
+    
+    public CommentWidget(ParentWidget parent, String text) {
+        super(parent, text);
+    }
+    
+    public String render() throws Exception {
+        return "";
+    }
+}
+```
+#### 3-3-1. 가짜범위
+
+때로는 빈 while문이나 빈 for문을 접한다. body가 없는 while문은 세미콜론을 새 행에다 들여쓰자.
+```
+while(dis.read(buf, 0, readBufferSize) != -1)
+;
+//이부분은 정확히 어떤 의미인지 모르겠다...
+```
+
+## 4. 팀 규칙
+
+프로그래머라면 각자 선호하는 규칙이 있다. 하지만 팀에 속한다면 자신이 선호해야 할 규칙은 바로 팀 규칙이다.
+팀은 한가지 규칙에 합의하고, 모든 팀원은 그 규칙을 따르는것을 지향하자.
+개개인이 마음대로 짜대는 코드는 피해야한다. 좋은 시스템은 읽기 쉬운 문서로, 스타일은 일관적이고 매끄러워야 한다.
