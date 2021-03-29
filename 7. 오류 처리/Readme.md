@@ -111,6 +111,34 @@ throw 경로에 위치하는 모든 함수가 최하위 함수에서 던지는 �
 | 처리 여부 | 반드시 처리 | 명시적으로 처리하지 않아도 됨 |
 | 트랜잭션 처리 | roll-back 하지 않음 | roll-back 함 |
 | 예시 | IOException, ClassNotFoundException | NullPointerException, ArithmeticException |
+아래 코드는 단순한 출력을 하는 메소드이다.
+```
+ public void printA(bool flag) {
+     if(flag)
+         System.out.println("called");
+ }
+
+ public void func(bool flag) {
+     printA(flag);
+ }
+
+```
+문득 프린트를 안할 때 NotPrintException 을 던지기로 구현을 변경했을 때
+```
+public void printA(bool flag) throws NotPrintException {
+     if(flag)
+         System.out.println("called");
+     else
+         throw new NotPrintException();
+}
+
+public void func(bool flag) throws NotPrintException {
+     printA(flag);
+}
+```
+해당 함수 뿐만이 아니라 호출하는 함수도 수정을 해줘야 하기 때문에 OCP 를 위반하게 된다.
+
+
 
 ## 4. 예외에 의미를 제공하라
 예외에 정보를 충분히 담아서 던지면, 오류가 발생한 원인과 위치를 찾기 쉬워진다.
