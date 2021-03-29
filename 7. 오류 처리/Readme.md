@@ -106,7 +106,7 @@ public List<RecordedGrip> retrieveSection(String sectionName) {
 throw 경로에 위치하는 모든 함수가 최하위 함수에서 던지는 예외를 알아야 하므로 캡슐화가 깨진다.
 
 |  | Checked Exception | UnChecked Exception |
-|---|:---:|---:|
+|---|:---:|:---:|
 | 확인 시점 | 컴파일 시점 | 런타임 시점 |
 | 처리 여부 | 반드시 처리 | 명시적으로 처리하지 않아도 됨 |
 | 트랜잭션 처리 | roll-back 하지 않음 | roll-back 함 |
