@@ -3,6 +3,64 @@
 
 ## 1. 오류 코드보다 예외를 사용하라
 
+
+### 1-1. 오류코드 sample
+```
+public class DeviceController {
+	...
+	public void sendShutDown() {
+		DeviceHandle handle = getHandle(DEV1);
+		// 디바이스 상태를 점검한다
+		if (handle != DeviceHandle.INVALID) {
+			// 레코드 필드에 디바이스 상태를 저장한다
+			retrieveDeviceRecord(handle);
+			// 디바이스가 일시정지 상태가 아니라면 종료한다.
+			if (record.getStatus() != DEVICE_SUSPENDED) {
+				pauseDevice(handle);
+				clearDeviceWorkQueue(handle);
+				closeDevice(handle);
+			} else {
+				logger.log("Device suspended. Unable to shut down");
+			}
+		} else {
+			logger.log("Invalid handle for: " + DEV1.toString());
+		}
+	}
+	...
+}
+
+```
+
+### 1-2. 예외처리 sample
+```
+public class DeviceController {
+	...
+	public void sendShutDown() {
+		try {
+			tryToShutDown();
+		} catch (DeviceShutDownError e) {
+			logger.log(e);
+		}
+	}
+
+	private void tryToShutDown() throws DeviceShutDownError {
+		DeviceHandle handle = getHandle(DEV1);
+		DeviceRecord record = retrieveDeviceRecord(handle);
+		pauseDevice(handle); 
+		clearDeviceWorkQueue(handle); 
+		closeDevice(handle);
+	}
+
+	private DeviceHandle getHandle(DeviceID id) {
+		...
+		throw new DeviceShutDownError("Invalid handle for: " + id.toString());
+		...
+	}
+	...
+}
+
+```
+
 ## 2. Try-Catch-Finally 문부터 작성하라
 
 ## 3. 미확인(unchecked) 예외를 사용하라
