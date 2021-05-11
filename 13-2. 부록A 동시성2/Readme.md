@@ -16,4 +16,28 @@
 
 
 ## 가능한 실행경로
+```
+ public class IdGenerator{
+  private int lastIdUsed;
+  
+  public int incrementValue(){
+    return ++lastIdUsed;
+  }
+ }
+```
+만약 lastIdUsed 초깃값을 93으로 가정할때 가능한 결과는 다음과 같다
+  - case1) A 스레드는 94을 받는다. B 스레드는 95를 받는다. lastIdUsed는 95가 된다.
+  - case2) A 스레드는 95를 받는다. B 스레드는 94을 받는다. lastIdUsed는 95가 된다.
+  - case3) A 스레드는 94을 받는다. B 스레드는 94을 받는다. lastIdUsed는 94이 된다.
+어이없게도 마지막 결과도 가능하다.
+
+### 경로 수
+위 코드중 return ++lastIdUsed 라는 코드 한줄은 바이트 코드 명령 8개에 해당한다
+만약 두 스레드가 명령 8개를 뒤섞어 실행할 경우 경우의 수는 엄청 많아지게 된다
+루프나 분기가 없는 명령 T개를 스레드 N개가 차례로 실행한다면 가능한 경로수는 다음과 같다
+```
+ (NT)!
+------
+  T!ⁿ
+```
 
