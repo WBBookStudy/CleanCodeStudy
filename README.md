@@ -2,7 +2,7 @@
 Robert C. Martin의 Clean Code 책을 보면서 공부하기위한 프로젝트
 
 ## 진행방법
-### 보통 ReadMe.md 를 이용해 진행합니다.
+### 보통 Markdown형식으로 ReadMe.md를 작성해 진행합니다.
 
 ## 코드 편집기
 코드로 올리시려면 가능하면 Sublime Text로 열 수 있는 파일을 올려주세요.
